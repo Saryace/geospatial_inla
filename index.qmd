@@ -365,7 +365,6 @@ mapa
 
 ```{r}
 #| echo: true
-
 tm_shape(uso_suelo) +
   tm_polygons("uso_suelo")
 ```
@@ -375,5 +374,5 @@ tm_shape(uso_suelo) +
 
 -   Datos de salud 🤝 Datos espaciales
 -   Antes de usar los datos: siempre revisar proyección 🌐
--   Revisar paquetes y su documentación (rgdal y rgeos 🥶)
+-   Revisar paquetes y su documentación (rgdal y rgeos serán 🥶)
 
