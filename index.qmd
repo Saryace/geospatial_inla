@@ -374,6 +374,6 @@ tm_shape(uso_suelo) +
 ## Conclusiones
 
 -   Datos de salud 🤝 Datos espaciales
--   Antes de usar los datos: revisar proyección 🌐
+-   Antes de usar los datos: siempre revisar proyección 🌐
 -   Revisar paquetes y su documentación (rgdal y rgeos 🥶)
 
