@@ -1,0 +1,379 @@
+---
+title: "Geospatial Health Data: Modeling and Visualization with R-INLA and Shiny"
+author: "Sara Acevedo"
+format:
+  revealjs: 
+    theme: serif
+---
+
+```{r}
+#| label: setup
+#| include: false
+library(tidyverse)
+library(sf)
+library(viridis)
+library(geoR)
+library(cholera)
+library(rgdal)
+library(mapview)
+library(leaflet)
+library(leafsync)
+library(tmap)
+```
+
+## Plan
+
+El libro se puede encontrar [acá](https://www.paulamoraga.com/book-geospatial/index.html)
+
+-   Son 16 capítulos
+
+-   El club solo contempla los 10 primeros
+
+-   Horario: lunes de 15 a 16 cada dos semanas (1 o 2 capítulos por sesión)
+
+## Capítulo 1: Geospatial health
+
+-   Geospatial health data
+
+-   Disease mapping
+
+-   Communication of results
+
+## Capítulo 1: Geospatial health data
+
+-   Los datos en salud permiten detectar problemas de salud pública
+
+-   Mejoran la eficacia en la respuesa y ayudan a prevenir y controlar enfermedades
+
+-   El análisis de datos en salud implica distintos métodos, centrados en **patrones** y **conclusiones estadísticas**
+
+-   El análisis espacial usando herramientas SIG juega un papel clave
+
+## Capítulo 1: Disease mapping
+
+-   El mapeo de enfermedades proporciona una visualización de patrones espaciales de las enfermedades
+
+-   Los mapas resumen zonas de alto riesgo, permiten formular hipótesis y asignar recursos de forma eficaz
+
+-   Usando modelos jerárquicos bayesianos se puede estimar el riesgo
+
+## Capítulo 1: Disease mapping
+
+-   Métodos bayesianos mencionados son dos:
+
+  1.  Markov chain Monte Carlo **(MCMC)** 
+  2.  Integrated nested Laplace approximation **(INLA)**
+  
+## Capítulo 1: Disease mapping
+
+-   Estos métodos consideran variables y correlación espacial, expresando incertidumbre en la estimación de riesgo
+
+-   La agregación de datos permite confidencialidad (por ejemplo comunas)
+
+-   Datos  y covariables de alta resolución permiten realizar estimaciones de riesgo precisas
+
+## Capítulo 1: Communication of results
+
+-   La **difusión** de la información en temas de salud es clave
+
+-   R ofrece herramientas de comunicación eficaces, como mapas interactivos (leaflet) y gráficos de series temporales (dygraphs)  
+
+-   Permite crear informes reproducibles (RMarkdown ahora **Quarto**), web interactivas (flexdashboard) y aplicaciones web (Shiny)
+
+-   La interpretación de estos resultados ayuda a asignar recursos de forma eficiente. 
+
+## Capítulo 2: Spatial data and R packages for mapping
+
+-   Types of spatial data
+
+-   Coordinate reference systems
+
+-   Shapefiles
+
+-   Making maps with R
+
+## Capítulo 2: Types of spatial data
+
+Tres características: atributo, ubicación de la observación y el **dominio**
+
+Los tipos de datos según el dominio que representan.
+
+1. Areal data 🗾
+
+2. Geostatistical data 🌎 📊
+
+3. Point patterns 📍
+
+## Capítulo 2: Areal data 🗾
+
+El dominio es fijo (de forma regular o irregular) y se divide en un número finito de unidades de área con límites bien definidos. 
+
+## Capítulo 2: Areal data 🗾
+
+Sudden infant deaths in North Carolina in 1974.
+
+```{r}
+nc <- st_read(system.file("shape/nc.shp", package = "sf"),
+  quiet = TRUE)
+
+ggplot(data = nc, aes(fill = SID74)) +
+  geom_sf() +
+  scale_fill_viridis() +
+  theme_bw()
+```
+
+## Capítulo 2: Geostatistical data 🌎 📊
+
+En los datos geoestadísticos, el dominio es un conjunto fijo continuo. Es importante señalar que la continuidad se refiere al dominio, y el atributo puede ser continuo o discreto.
+
+## Capítulo 2: Geostatistical data
+
+Average rainfall measured at 143 recording stations in Paraná state, Brazil.
+```{r}
+ggplot(data.frame(cbind(parana$coords, Rainfall = parana$data)))+
+  geom_point(aes(east, north, color = Rainfall), size = 2) +
+  coord_fixed(ratio = 1) +
+  scale_color_gradient(low = "blue", high = "orange") +
+  geom_path(data = data.frame(parana$border), aes(east, north)) +
+  theme_bw()
+```
+
+## Capítulo 2: Point patterns 📍
+
+A diferencia de los datos geoestadísticos y de área, el dominio es al azar. 
+ 
+## Capítulo 2: Point patterns 📍
+
+John Snow’s map of the 1854 London cholera outbreak
+```{r}
+rng <- mapRange()
+plot(fatalities[, c("x", "y")],
+  pch = 15, col = "black",
+  cex = 0.5, xlim = rng$x, ylim = rng$y, asp = 1,
+  frame.plot = FALSE, axes = FALSE, xlab = "", ylab = ""
+)
+addRoads()
+```
+
+## Capítulo 2: Coordinate reference systems 🌐
+
+-   Se debe conocer en qué proyección espacial se encuentran los datos. 
+
+-   Las proyecciones están determinadas por un CRS (coordinate reference system).
+
+-   Cada CRS puede estar definido por un EPSG (sigla de European Petroleum Survey Group), se pueden ver [acá](https://spatialreference.org/ref/)
+
+-   Si quiero hacer operaciones espaciales, **todas las capas** deben tener el mismo sistema de proyección.
+
+## Capítulo 2: Coordinate reference systems 🌐
+
+En Chile, los sistemas de proyección más usados son:
+
+1. EPSG:4326: WGS 84
+2. EPSG:32719: WGS 84 / UTM zone 19S
+3. EPSG:3857: WGS84 Web (Pseudo)Mercator (Auxiliary Sphere)
+4. EPSG:24879: PSAD56 / UTM zone 19S
+
+> Estas slides se basaron en la presentación de [Stephanie Orellana para Rladies Madrid](https://sporella.github.io/datos_espaciales_madrid)
+
+## Ejemplo libro (modificado)
+
+Se crea un dataframe al azar con long y lat
+```{r}
+#| echo: true
+d <- data.frame(long = rnorm(3, 0, 1), lat = rnorm(3, 0, 1))
+d
+```
+
+Define las coordenadas
+```{r}
+#| echo: true
+coordinates(d) <- c("long", "lat")
+d
+```
+
+## Ejemplo libro (modificado)
+
+Asigna una proyección (CRS WGS84)
+```{r}
+#| echo: true
+proj4string(d) <- CRS("+proj=longlat +ellps=WGS84
+                      +datum=WGS84 +no_defs")
+d
+```
+
+## Ejemplo libro (modificado)
+
+Reprojecta desde long/lat a UTM zone 35 south
+```{r}
+#| echo: true
+d_new <- spTransform(d, CRS("+proj=utm +zone=35 +ellps=WGS84
+                      +datum=WGS84 +units=m +no_defs +south"))
+d_new
+```
+
+## Ejemplo libro (modificado)
+
+Crea nuevas columnas llamadas UTMx y UTMy
+```{r}
+#| echo: true
+d_new$UTMx <- coordinates(d_new)[, 1]
+d_new$UTMy <- coordinates(d_new)[, 2]
+```
+
+## Capítulo 2: Shapefiles 🗺️
+
+-   Shapefiles almacenan ubicación, forma y atributos de puntos, líneas y polígonos
+-   Un shapefile no es un archivo único, sino que consiste en una colección de archivos relacionados que tienen diferentes extensiones con un nombre común
+-   Un shapefile tiene tres archivos obligatorios con extensiones .shp, .shx y .dbf
+
+## Capítulo 2: Shapefiles 🗺️
+
+En R, podemos leer shapefiles utilizando la función readOGR() del paquete rgdal, o también la función st_read() del paquete sf
+
+:::{.callout-caution}
+during October 2023 rgdal, rgeos and maptools will be archived on CRAN, and packages with strong dependencies on the retiring packages must be either upgraded to use sf, terra or other alternatives or work-arounds by or before that time.
+:::
+
+## Capítulo 2: Shapefiles 🗺️
+```{r}
+#| echo: true
+nameshp <- system.file("shape/nc.shp", package = "sf")
+
+map <- st_read(nameshp, quiet = TRUE)
+
+class(map)
+```
+
+## Capítulo 2: Shapefiles 🗺️
+```{r}
+#| echo: true
+#| warning: false
+plot(map)
+```
+## Capítulo 2:  Making maps with R 🗺️
+
+Los paquetes mas útiles para hacer mapas son
+
+-   ggplot2
+-   leaflet
+-   mapview
+-   tmap
+
+## Capítulo 2:  Making maps with R 🗺️
+
+Acá usaré el mismo código del libro pero con datos de CEDEUS. Primero cargo los datos
+```{r}
+#| echo: true
+uso_suelo<- read_sf("https://opendata.arcgis.com/datasets/08dea558cea94b64bee9074ed0fbfd4f_0.geojson")
+
+class(uso_suelo) # ya es sf, sino se transforma con st_as_sf() 
+```
+
+## Capítulo 2:  Making maps with R 🗺️ ggplot2 
+```{r}
+#| echo: true
+ggplot(uso_suelo) + 
+  geom_sf(aes(fill = uso_suelo)) +
+  theme_bw()
+```
+
+## Capítulo 2:  Making maps with R 🗺️ ggplot2
+
+Puedo usar escalas de colores definidas
+```{r}
+#| echo: true
+ggplot(uso_suelo) + 
+  geom_sf(aes(fill = Shape__Area)) +
+  scale_fill_viridis() +
+  theme_bw()
+```
+## Capítulo 2:  Making maps with R 🗺️ leaflet
+
+-   Leaflet es una libreria de JavaScript de código abierto para mapas interactivos
+
+-   Leaflet requiere una proyección específica:  EPSG code 4326 
+
+## Capítulo 2:  Making maps with R 🗺️ leaflet
+
+Revisamos la proyección
+```{r}
+#| echo: true
+st_crs(uso_suelo)
+```
+
+## Capítulo 2:  Making maps with R 🗺️ leaflet
+
+Transformamos a EPSG code 4326 
+```{r}
+#| echo: true
+uso_suelo_leaflet<- st_transform(uso_suelo, 4326)
+
+st_crs(uso_suelo_leaflet)
+```
+
+## Capítulo 2:  Making maps with R 🗺️ leaflet
+
+```{r}
+#| echo: true
+pal <- colorNumeric("BrBG", domain = uso_suelo$Shape__Area)
+leaflet(uso_suelo_leaflet) %>%
+  addTiles() %>%
+  addPolygons(
+    color = "white", fillColor = ~ pal(Shape__Area),
+    fillOpacity = 1
+  ) %>%
+  addLegend(pal = pal, values = ~Shape__Area, opacity = 1)
+```
+
+## Capítulo 2:  Making maps with R 🗺️ mapview()
+
+```{r}
+#| echo: true
+
+mapview(uso_suelo, zcol = "uso_suelo")
+
+```
+
+## Capítulo 2:  Making maps with R 🗺️ mapview()
+
+Puedo usar escalas de colores de otros paquetes
+```{r}
+#| echo: true
+library(RColorBrewer)
+mapview(uso_suelo,
+  zcol = "uso_suelo",
+  map.types = "CartoDB.DarkMatter",
+  col.regions = colorRampPalette(brewer.pal(7, "Paired")) 
+)
+```
+
+## Capítulo 2:  Making maps with R 🗺️ mapview()
+
+Tiene muchas opciones, por ejemplo mapas al lado de otro
+```{r}
+#| echo: true
+#| 
+uso <- mapview(uso_suelo, zcol = "uso_suelo")
+area <- mapview(uso_suelo, zcol = "Shape__Area")
+mapa <- leafsync::sync(uso, area)
+mapa
+
+```
+
+## Capítulo 2:  Making maps with R 🗺️ tmap
+
+```{r}
+#| echo: true
+
+tm_shape(uso_suelo) +
+  tm_polygons("uso_suelo")
+```
+
+
+## Conclusiones
+
+-   Datos de salud 🤝 Datos espaciales
+-   Antes de usar los datos: revisar proyección 🌐
+-   Revisar paquetes y su documentación (rgdal y rgeos 🥶)
+
