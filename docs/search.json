@@ -1,0 +1,268 @@
+[
+  {
+    "objectID": "index.html#plan",
+    "href": "index.html#plan",
+    "title": "Geospatial Health Data: Modeling and Visualization with R-INLA and Shiny",
+    "section": "Plan",
+    "text": "Plan\nEl libro se puede encontrar acá\n\nSon 16 capítulos\nEl club solo contempla los 10 primeros\nHorario: lunes de 15 a 16 cada dos semanas (1 o 2 capítulos por sesión)"
+  },
+  {
+    "objectID": "index.html#capítulo-1-geospatial-health",
+    "href": "index.html#capítulo-1-geospatial-health",
+    "title": "Geospatial Health Data: Modeling and Visualization with R-INLA and Shiny",
+    "section": "Capítulo 1: Geospatial health",
+    "text": "Capítulo 1: Geospatial health\n\nGeospatial health data\nDisease mapping\nCommunication of results"
+  },
+  {
+    "objectID": "index.html#capítulo-1-geospatial-health-data",
+    "href": "index.html#capítulo-1-geospatial-health-data",
+    "title": "Geospatial Health Data: Modeling and Visualization with R-INLA and Shiny",
+    "section": "Capítulo 1: Geospatial health data",
+    "text": "Capítulo 1: Geospatial health data\n\nLos datos en salud permiten detectar problemas de salud pública\nMejoran la eficacia en la respuesa y ayudan a prevenir y controlar enfermedades\nEl análisis de datos en salud implica distintos métodos, centrados en patrones y conclusiones estadísticas\nEl análisis espacial usando herramientas SIG juega un papel clave"
+  },
+  {
+    "objectID": "index.html#capítulo-1-disease-mapping",
+    "href": "index.html#capítulo-1-disease-mapping",
+    "title": "Geospatial Health Data: Modeling and Visualization with R-INLA and Shiny",
+    "section": "Capítulo 1: Disease mapping",
+    "text": "Capítulo 1: Disease mapping\n\nEl mapeo de enfermedades proporciona una visualización de patrones espaciales de las enfermedades\nLos mapas resumen zonas de alto riesgo, permiten formular hipótesis y asignar recursos de forma eficaz\nUsando modelos jerárquicos bayesianos se puede estimar el riesgo"
+  },
+  {
+    "objectID": "index.html#capítulo-1-disease-mapping-1",
+    "href": "index.html#capítulo-1-disease-mapping-1",
+    "title": "Geospatial Health Data: Modeling and Visualization with R-INLA and Shiny",
+    "section": "Capítulo 1: Disease mapping",
+    "text": "Capítulo 1: Disease mapping\n\nMétodos bayesianos mencionados son dos:\n\n\nMarkov chain Monte Carlo (MCMC)\nIntegrated nested Laplace approximation (INLA)"
+  },
+  {
+    "objectID": "index.html#capítulo-1-disease-mapping-2",
+    "href": "index.html#capítulo-1-disease-mapping-2",
+    "title": "Geospatial Health Data: Modeling and Visualization with R-INLA and Shiny",
+    "section": "Capítulo 1: Disease mapping",
+    "text": "Capítulo 1: Disease mapping\n\nEstos métodos consideran variables y correlación espacial, expresando incertidumbre en la estimación de riesgo\nLa agregación de datos permite confidencialidad (por ejemplo comunas)\nDatos y covariables de alta resolución permiten realizar estimaciones de riesgo precisas"
+  },
+  {
+    "objectID": "index.html#capítulo-1-communication-of-results",
+    "href": "index.html#capítulo-1-communication-of-results",
+    "title": "Geospatial Health Data: Modeling and Visualization with R-INLA and Shiny",
+    "section": "Capítulo 1: Communication of results",
+    "text": "Capítulo 1: Communication of results\n\nLa difusión de la información en temas de salud es clave\nR ofrece herramientas de comunicación eficaces, como mapas interactivos (leaflet) y gráficos de series temporales (dygraphs)\nPermite crear informes reproducibles (RMarkdown ahora Quarto), web interactivas (flexdashboard) y aplicaciones web (Shiny)\nLa interpretación de estos resultados ayuda a asignar recursos de forma eficiente."
+  },
+  {
+    "objectID": "index.html#capítulo-2-spatial-data-and-r-packages-for-mapping",
+    "href": "index.html#capítulo-2-spatial-data-and-r-packages-for-mapping",
+    "title": "Geospatial Health Data: Modeling and Visualization with R-INLA and Shiny",
+    "section": "Capítulo 2: Spatial data and R packages for mapping",
+    "text": "Capítulo 2: Spatial data and R packages for mapping\n\nTypes of spatial data\nCoordinate reference systems\nShapefiles\nMaking maps with R"
+  },
+  {
+    "objectID": "index.html#capítulo-2-types-of-spatial-data",
+    "href": "index.html#capítulo-2-types-of-spatial-data",
+    "title": "Geospatial Health Data: Modeling and Visualization with R-INLA and Shiny",
+    "section": "Capítulo 2: Types of spatial data",
+    "text": "Capítulo 2: Types of spatial data\nTres características: atributo, ubicación de la observación y el dominio\nLos tipos de datos según el dominio que representan.\n\nAreal data 🗾\nGeostatistical data 🌎 📊\nPoint patterns 📍"
+  },
+  {
+    "objectID": "index.html#capítulo-2-areal-data",
+    "href": "index.html#capítulo-2-areal-data",
+    "title": "Geospatial Health Data: Modeling and Visualization with R-INLA and Shiny",
+    "section": "Capítulo 2: Areal data 🗾",
+    "text": "Capítulo 2: Areal data 🗾\nEl dominio es fijo (de forma regular o irregular) y se divide en un número finito de unidades de área con límites bien definidos."
+  },
+  {
+    "objectID": "index.html#capítulo-2-areal-data-1",
+    "href": "index.html#capítulo-2-areal-data-1",
+    "title": "Geospatial Health Data: Modeling and Visualization with R-INLA and Shiny",
+    "section": "Capítulo 2: Areal data 🗾",
+    "text": "Capítulo 2: Areal data 🗾\nSudden infant deaths in North Carolina in 1974."
+  },
+  {
+    "objectID": "index.html#capítulo-2-geostatistical-data",
+    "href": "index.html#capítulo-2-geostatistical-data",
+    "title": "Geospatial Health Data: Modeling and Visualization with R-INLA and Shiny",
+    "section": "Capítulo 2: Geostatistical data 🌎 📊",
+    "text": "Capítulo 2: Geostatistical data 🌎 📊\nEn los datos geoestadísticos, el dominio es un conjunto fijo continuo. Es importante señalar que la continuidad se refiere al dominio, y el atributo puede ser continuo o discreto."
+  },
+  {
+    "objectID": "index.html#capítulo-2-geostatistical-data-1",
+    "href": "index.html#capítulo-2-geostatistical-data-1",
+    "title": "Geospatial Health Data: Modeling and Visualization with R-INLA and Shiny",
+    "section": "Capítulo 2: Geostatistical data",
+    "text": "Capítulo 2: Geostatistical data\nAverage rainfall measured at 143 recording stations in Paraná state, Brazil."
+  },
+  {
+    "objectID": "index.html#capítulo-2-point-patterns",
+    "href": "index.html#capítulo-2-point-patterns",
+    "title": "Geospatial Health Data: Modeling and Visualization with R-INLA and Shiny",
+    "section": "Capítulo 2: Point patterns 📍",
+    "text": "Capítulo 2: Point patterns 📍\nA diferencia de los datos geoestadísticos y de área, el dominio es al azar."
+  },
+  {
+    "objectID": "index.html#capítulo-2-point-patterns-1",
+    "href": "index.html#capítulo-2-point-patterns-1",
+    "title": "Geospatial Health Data: Modeling and Visualization with R-INLA and Shiny",
+    "section": "Capítulo 2: Point patterns 📍",
+    "text": "Capítulo 2: Point patterns 📍\nJohn Snow’s map of the 1854 London cholera outbreak"
+  },
+  {
+    "objectID": "index.html#capítulo-2-coordinate-reference-systems",
+    "href": "index.html#capítulo-2-coordinate-reference-systems",
+    "title": "Geospatial Health Data: Modeling and Visualization with R-INLA and Shiny",
+    "section": "Capítulo 2: Coordinate reference systems 🌐",
+    "text": "Capítulo 2: Coordinate reference systems 🌐\n\nSe debe conocer en qué proyección espacial se encuentran los datos.\nLas proyecciones están determinadas por un CRS (coordinate reference system).\nCada CRS puede estar definido por un EPSG (sigla de European Petroleum Survey Group), se pueden ver acá\nSi quiero hacer operaciones espaciales, todas las capas deben tener el mismo sistema de proyección."
+  },
+  {
+    "objectID": "index.html#capítulo-2-coordinate-reference-systems-1",
+    "href": "index.html#capítulo-2-coordinate-reference-systems-1",
+    "title": "Geospatial Health Data: Modeling and Visualization with R-INLA and Shiny",
+    "section": "Capítulo 2: Coordinate reference systems 🌐",
+    "text": "Capítulo 2: Coordinate reference systems 🌐\nEn Chile, los sistemas de proyección más usados son:\n\nEPSG:4326: WGS 84\nEPSG:32719: WGS 84 / UTM zone 19S\nEPSG:3857: WGS84 Web (Pseudo)Mercator (Auxiliary Sphere)\nEPSG:24879: PSAD56 / UTM zone 19S\n\n\nEstas slides se basaron en la presentación de Stephanie Orellana para Rladies Madrid"
+  },
+  {
+    "objectID": "index.html#ejemplo-libro-modificado",
+    "href": "index.html#ejemplo-libro-modificado",
+    "title": "Geospatial Health Data: Modeling and Visualization with R-INLA and Shiny",
+    "section": "Ejemplo libro (modificado)",
+    "text": "Ejemplo libro (modificado)\nSe crea un dataframe al azar con long y lat\n\nd <- data.frame(long = rnorm(3, 0, 1), lat = rnorm(3, 0, 1))\nd\n\n        long        lat\n1  1.3204603 -0.3063718\n2  0.5186392  0.2446846\n3 -1.0516522  1.7822891\n\n\nDefine las coordenadas\n\ncoordinates(d) <- c(\"long\", \"lat\")\nd\n\nclass       : SpatialPoints \nfeatures    : 3 \nextent      : -1.051652, 1.32046, -0.3063718, 1.782289  (xmin, xmax, ymin, ymax)\ncrs         : NA"
+  },
+  {
+    "objectID": "index.html#ejemplo-libro-modificado-1",
+    "href": "index.html#ejemplo-libro-modificado-1",
+    "title": "Geospatial Health Data: Modeling and Visualization with R-INLA and Shiny",
+    "section": "Ejemplo libro (modificado)",
+    "text": "Ejemplo libro (modificado)\nAsigna una proyección (CRS WGS84)\n\nproj4string(d) <- CRS(\"+proj=longlat +ellps=WGS84\n                      +datum=WGS84 +no_defs\")\nd\n\nclass       : SpatialPoints \nfeatures    : 3 \nextent      : -1.051652, 1.32046, -0.3063718, 1.782289  (xmin, xmax, ymin, ymax)\ncrs         : +proj=longlat +datum=WGS84 +no_defs"
+  },
+  {
+    "objectID": "index.html#ejemplo-libro-modificado-2",
+    "href": "index.html#ejemplo-libro-modificado-2",
+    "title": "Geospatial Health Data: Modeling and Visualization with R-INLA and Shiny",
+    "section": "Ejemplo libro (modificado)",
+    "text": "Ejemplo libro (modificado)\nReprojecta desde long/lat a UTM zone 35 south\n\nd_new <- spTransform(d, CRS(\"+proj=utm +zone=35 +ellps=WGS84\n                      +datum=WGS84 +units=m +no_defs +south\"))\nd_new\n\nclass       : SpatialPoints \nfeatures    : 3 \nextent      : -2753335, -2458960, 9962396, 10223413  (xmin, xmax, ymin, ymax)\ncrs         : +proj=utm +zone=35 +south +datum=WGS84 +units=m +no_defs"
+  },
+  {
+    "objectID": "index.html#ejemplo-libro-modificado-3",
+    "href": "index.html#ejemplo-libro-modificado-3",
+    "title": "Geospatial Health Data: Modeling and Visualization with R-INLA and Shiny",
+    "section": "Ejemplo libro (modificado)",
+    "text": "Ejemplo libro (modificado)\nCrea nuevas columnas llamadas UTMx y UTMy\n\nd_new$UTMx <- coordinates(d_new)[, 1]\nd_new$UTMy <- coordinates(d_new)[, 2]"
+  },
+  {
+    "objectID": "index.html#capítulo-2-shapefiles",
+    "href": "index.html#capítulo-2-shapefiles",
+    "title": "Geospatial Health Data: Modeling and Visualization with R-INLA and Shiny",
+    "section": "Capítulo 2: Shapefiles 🗺️",
+    "text": "Capítulo 2: Shapefiles 🗺️\n\nShapefiles almacenan ubicación, forma y atributos de puntos, líneas y polígonos\nUn shapefile no es un archivo único, sino que consiste en una colección de archivos relacionados que tienen diferentes extensiones con un nombre común\nUn shapefile tiene tres archivos obligatorios con extensiones .shp, .shx y .dbf"
+  },
+  {
+    "objectID": "index.html#capítulo-2-shapefiles-1",
+    "href": "index.html#capítulo-2-shapefiles-1",
+    "title": "Geospatial Health Data: Modeling and Visualization with R-INLA and Shiny",
+    "section": "Capítulo 2: Shapefiles 🗺️",
+    "text": "Capítulo 2: Shapefiles 🗺️\nEn R, podemos leer shapefiles utilizando la función readOGR() del paquete rgdal, o también la función st_read() del paquete sf\n\n\n\n\n\n\nDanger\n\n\nduring October 2023 rgdal, rgeos and maptools will be archived on CRAN, and packages with strong dependencies on the retiring packages must be either upgraded to use sf, terra or other alternatives or work-arounds by or before that time."
+  },
+  {
+    "objectID": "index.html#capítulo-2-shapefiles-2",
+    "href": "index.html#capítulo-2-shapefiles-2",
+    "title": "Geospatial Health Data: Modeling and Visualization with R-INLA and Shiny",
+    "section": "Capítulo 2: Shapefiles 🗺️",
+    "text": "Capítulo 2: Shapefiles 🗺️\n\nnameshp <- system.file(\"shape/nc.shp\", package = \"sf\")\n\nmap <- st_read(nameshp, quiet = TRUE)\n\nclass(map)\n\n[1] \"sf\"         \"data.frame\""
+  },
+  {
+    "objectID": "index.html#capítulo-2-shapefiles-3",
+    "href": "index.html#capítulo-2-shapefiles-3",
+    "title": "Geospatial Health Data: Modeling and Visualization with R-INLA and Shiny",
+    "section": "Capítulo 2: Shapefiles 🗺️",
+    "text": "Capítulo 2: Shapefiles 🗺️\n\nplot(map)"
+  },
+  {
+    "objectID": "index.html#capítulo-2-making-maps-with-r",
+    "href": "index.html#capítulo-2-making-maps-with-r",
+    "title": "Geospatial Health Data: Modeling and Visualization with R-INLA and Shiny",
+    "section": "Capítulo 2: Making maps with R 🗺️",
+    "text": "Capítulo 2: Making maps with R 🗺️\nLos paquetes mas útiles para hacer mapas son\n\nggplot2\nleaflet\nmapview\ntmap"
+  },
+  {
+    "objectID": "index.html#capítulo-2-making-maps-with-r-1",
+    "href": "index.html#capítulo-2-making-maps-with-r-1",
+    "title": "Geospatial Health Data: Modeling and Visualization with R-INLA and Shiny",
+    "section": "Capítulo 2: Making maps with R 🗺️",
+    "text": "Capítulo 2: Making maps with R 🗺️\nAcá usaré el mismo código del libro pero con datos de CEDEUS. Primero cargo los datos\n\nuso_suelo<- read_sf(\"https://opendata.arcgis.com/datasets/08dea558cea94b64bee9074ed0fbfd4f_0.geojson\")\n\nclass(uso_suelo) # ya es sf, sino se transforma con st_as_sf() \n\n[1] \"sf\"         \"tbl_df\"     \"tbl\"        \"data.frame\""
+  },
+  {
+    "objectID": "index.html#capítulo-2-making-maps-with-r-ggplot2",
+    "href": "index.html#capítulo-2-making-maps-with-r-ggplot2",
+    "title": "Geospatial Health Data: Modeling and Visualization with R-INLA and Shiny",
+    "section": "Capítulo 2: Making maps with R 🗺️ ggplot2",
+    "text": "Capítulo 2: Making maps with R 🗺️ ggplot2\n\nggplot(uso_suelo) + \n  geom_sf(aes(fill = uso_suelo)) +\n  theme_bw()"
+  },
+  {
+    "objectID": "index.html#capítulo-2-making-maps-with-r-ggplot2-1",
+    "href": "index.html#capítulo-2-making-maps-with-r-ggplot2-1",
+    "title": "Geospatial Health Data: Modeling and Visualization with R-INLA and Shiny",
+    "section": "Capítulo 2: Making maps with R 🗺️ ggplot2",
+    "text": "Capítulo 2: Making maps with R 🗺️ ggplot2\nPuedo usar escalas de colores definidas\n\nggplot(uso_suelo) + \n  geom_sf(aes(fill = Shape__Area)) +\n  scale_fill_viridis() +\n  theme_bw()"
+  },
+  {
+    "objectID": "index.html#capítulo-2-making-maps-with-r-leaflet",
+    "href": "index.html#capítulo-2-making-maps-with-r-leaflet",
+    "title": "Geospatial Health Data: Modeling and Visualization with R-INLA and Shiny",
+    "section": "Capítulo 2: Making maps with R 🗺️ leaflet",
+    "text": "Capítulo 2: Making maps with R 🗺️ leaflet\n\nLeaflet es una libreria de JavaScript de código abierto para mapas interactivos\nLeaflet requiere una proyección específica: EPSG code 4326"
+  },
+  {
+    "objectID": "index.html#capítulo-2-making-maps-with-r-leaflet-1",
+    "href": "index.html#capítulo-2-making-maps-with-r-leaflet-1",
+    "title": "Geospatial Health Data: Modeling and Visualization with R-INLA and Shiny",
+    "section": "Capítulo 2: Making maps with R 🗺️ leaflet",
+    "text": "Capítulo 2: Making maps with R 🗺️ leaflet\nRevisamos la proyección\n\nst_crs(uso_suelo)\n\nCoordinate Reference System:\n  User input: WGS 84 \n  wkt:\nGEOGCRS[\"WGS 84\",\n    DATUM[\"World Geodetic System 1984\",\n        ELLIPSOID[\"WGS 84\",6378137,298.257223563,\n            LENGTHUNIT[\"metre\",1]]],\n    PRIMEM[\"Greenwich\",0,\n        ANGLEUNIT[\"degree\",0.0174532925199433]],\n    CS[ellipsoidal,2],\n        AXIS[\"geodetic latitude (Lat)\",north,\n            ORDER[1],\n            ANGLEUNIT[\"degree\",0.0174532925199433]],\n        AXIS[\"geodetic longitude (Lon)\",east,\n            ORDER[2],\n            ANGLEUNIT[\"degree\",0.0174532925199433]],\n    ID[\"EPSG\",4326]]"
+  },
+  {
+    "objectID": "index.html#capítulo-2-making-maps-with-r-leaflet-2",
+    "href": "index.html#capítulo-2-making-maps-with-r-leaflet-2",
+    "title": "Geospatial Health Data: Modeling and Visualization with R-INLA and Shiny",
+    "section": "Capítulo 2: Making maps with R 🗺️ leaflet",
+    "text": "Capítulo 2: Making maps with R 🗺️ leaflet\nTransformamos a EPSG code 4326\n\nuso_suelo_leaflet<- st_transform(uso_suelo, 4326)\n\nst_crs(uso_suelo_leaflet)\n\nCoordinate Reference System:\n  User input: EPSG:4326 \n  wkt:\nGEOGCRS[\"WGS 84\",\n    ENSEMBLE[\"World Geodetic System 1984 ensemble\",\n        MEMBER[\"World Geodetic System 1984 (Transit)\"],\n        MEMBER[\"World Geodetic System 1984 (G730)\"],\n        MEMBER[\"World Geodetic System 1984 (G873)\"],\n        MEMBER[\"World Geodetic System 1984 (G1150)\"],\n        MEMBER[\"World Geodetic System 1984 (G1674)\"],\n        MEMBER[\"World Geodetic System 1984 (G1762)\"],\n        MEMBER[\"World Geodetic System 1984 (G2139)\"],\n        ELLIPSOID[\"WGS 84\",6378137,298.257223563,\n            LENGTHUNIT[\"metre\",1]],\n        ENSEMBLEACCURACY[2.0]],\n    PRIMEM[\"Greenwich\",0,\n        ANGLEUNIT[\"degree\",0.0174532925199433]],\n    CS[ellipsoidal,2],\n        AXIS[\"geodetic latitude (Lat)\",north,\n            ORDER[1],\n            ANGLEUNIT[\"degree\",0.0174532925199433]],\n        AXIS[\"geodetic longitude (Lon)\",east,\n            ORDER[2],\n            ANGLEUNIT[\"degree\",0.0174532925199433]],\n    USAGE[\n        SCOPE[\"Horizontal component of 3D system.\"],\n        AREA[\"World.\"],\n        BBOX[-90,-180,90,180]],\n    ID[\"EPSG\",4326]]"
+  },
+  {
+    "objectID": "index.html#capítulo-2-making-maps-with-r-leaflet-3",
+    "href": "index.html#capítulo-2-making-maps-with-r-leaflet-3",
+    "title": "Geospatial Health Data: Modeling and Visualization with R-INLA and Shiny",
+    "section": "Capítulo 2: Making maps with R 🗺️ leaflet",
+    "text": "Capítulo 2: Making maps with R 🗺️ leaflet\n\npal <- colorNumeric(\"BrBG\", domain = uso_suelo$Shape__Area)\nleaflet(uso_suelo_leaflet) %>%\n  addTiles() %>%\n  addPolygons(\n    color = \"white\", fillColor = ~ pal(Shape__Area),\n    fillOpacity = 1\n  ) %>%\n  addLegend(pal = pal, values = ~Shape__Area, opacity = 1)"
+  },
+  {
+    "objectID": "index.html#capítulo-2-making-maps-with-r-mapview",
+    "href": "index.html#capítulo-2-making-maps-with-r-mapview",
+    "title": "Geospatial Health Data: Modeling and Visualization with R-INLA and Shiny",
+    "section": "Capítulo 2: Making maps with R 🗺️ mapview()",
+    "text": "Capítulo 2: Making maps with R 🗺️ mapview()\n\nmapview(uso_suelo, zcol = \"uso_suelo\")"
+  },
+  {
+    "objectID": "index.html#capítulo-2-making-maps-with-r-mapview-1",
+    "href": "index.html#capítulo-2-making-maps-with-r-mapview-1",
+    "title": "Geospatial Health Data: Modeling and Visualization with R-INLA and Shiny",
+    "section": "Capítulo 2: Making maps with R 🗺️ mapview()",
+    "text": "Capítulo 2: Making maps with R 🗺️ mapview()\nPuedo usar escalas de colores de otros paquetes\n\nlibrary(RColorBrewer)\nmapview(uso_suelo,\n  zcol = \"uso_suelo\",\n  map.types = \"CartoDB.DarkMatter\",\n  col.regions = colorRampPalette(brewer.pal(7, \"Paired\")) \n)"
+  },
+  {
+    "objectID": "index.html#capítulo-2-making-maps-with-r-mapview-2",
+    "href": "index.html#capítulo-2-making-maps-with-r-mapview-2",
+    "title": "Geospatial Health Data: Modeling and Visualization with R-INLA and Shiny",
+    "section": "Capítulo 2: Making maps with R 🗺️ mapview()",
+    "text": "Capítulo 2: Making maps with R 🗺️ mapview()\nTiene muchas opciones, por ejemplo mapas al lado de otro\n\nuso <- mapview(uso_suelo, zcol = \"uso_suelo\")\narea <- mapview(uso_suelo, zcol = \"Shape__Area\")\nmapa <- leafsync::sync(uso, area)\nmapa"
+  },
+  {
+    "objectID": "index.html#capítulo-2-making-maps-with-r-tmap",
+    "href": "index.html#capítulo-2-making-maps-with-r-tmap",
+    "title": "Geospatial Health Data: Modeling and Visualization with R-INLA and Shiny",
+    "section": "Capítulo 2: Making maps with R 🗺️ tmap",
+    "text": "Capítulo 2: Making maps with R 🗺️ tmap\n\ntm_shape(uso_suelo) +\n  tm_polygons(\"uso_suelo\")"
+  },
+  {
+    "objectID": "index.html#conclusiones",
+    "href": "index.html#conclusiones",
+    "title": "Geospatial Health Data: Modeling and Visualization with R-INLA and Shiny",
+    "section": "Conclusiones",
+    "text": "Conclusiones\n\nDatos de salud 🤝 Datos espaciales\nAntes de usar los datos: siempre revisar proyección 🌐\nRevisar paquetes y su documentación (rgdal y rgeos serán 🥶)"
+  }
+]
